@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>tabs</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                width: 100%;
+            }
+            .container {
+                position: relative;
+                width: 70%;
+                min-height: 500px;
+                padding-top: 10px;
+                border: 1px solid black;
+                overflow: auto;
+            }
+
+            .tabs {
+                display: none;
+            }
+            label[for="login"],
+            label[for="register"] {
+                cursor: pointer;
+                margin-left: 200px;
+            }
+            .content {
+                display: none;
+                position: absolute;
+                top: 45px;
+                width: 100%;
+                margin: auto;
+                padding-left: 15%;
+                padding-bottom: 10px;
+            }
+            /* lables inside class content */
+            .content > label {
+                display: block;
+            }
+            /* input checked next sibling class content */
+            .tabs:checked + .content {
+                display: block;
+                z-index: 2;
+            }
+            /* a lable which has next sibling input checked */
+            label:has(+ .tabs:checked) {
+                background-color: blue;
+                color: white;
+                padding: 6px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+
+            <label for="login">Login</label>
+            <input type="radio" name="tabs" id="login" class="tabs" checked />
+
+            <div class="content" id="log">
+                <label for="username">username</label>
+                <input type="text" id="username" />
+
+                <label for="password">Password</label>
+                <input type="password" id="password" />
+                <br><br>
+                <input type="submit" value="Login">
+            </div>
+
+            <label for="register">Register</label>
+            <input type="radio" name="tabs" id="register" class="tabs" />
+
+            <div class="content" id="reg">
+                <label for="firstname">First name:</label>
+                <input type="text" id="firstname" /><br /><br />
+
+                <label for="lastname">Last name: </label>
+                <input type="text" id="lastname" /><br /><br />
+
+                <label for=""></label>Gender: male<input
+                    type="radio"
+                    id="male"
+                    name="Gender"
+                />
+
+                female<input type="radio" id="female" name="Gender" /><br /><br />
+
+                <label for="">Email:</label> <input type="email" /> <br /><br />
+
+                <label for="">Phone number:</label>
+                <input type="number" /><br /><br />
+
+                <label for=""></label>Language:
+                <select name="b" id="b">
+                    <option value="">persian</option>
+                    <option value="">English</option></select
+                ><br /><br />
+
+                <label for="">Enter a password: </label>
+                <input type="password" /><br /><br />
+                <label for="">Confirm your password:</label>
+                <input type="password" /><br /><br />
+
+                <input type="checkbox" />I agreed to the site's rules.
+                <br /><br />
+                <input type="submit" value="register" /><br /><br />
+                <small
+                    >The information you registered as a user will be your [User
+                    ID (e-mail address)] and [Password] when you next log in.<br />Please
+                    save the information (save or print out the screen, etc.) so
+                    you won’t forget the information.
+                </small>
+            </div>
+        </div>
+    </body>
+</html>
